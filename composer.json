@@ -1,5 +1,5 @@
 {
-  "name": "xdire/dude-boilerplate",
+  "name": "xdire/dude-pmvc",
   "description": "Friendly framework. Duuuudeeee!",
   "license": "MIT",
   "keywords": ["dude","boilerplate","php"],
@@ -11,6 +11,7 @@
     }
   ],
   "require": {
+    "php": ">=5.5.0",
     "xdire/dude": "*"
   },
   "autoload": {
