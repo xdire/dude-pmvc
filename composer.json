@@ -3,7 +3,6 @@
   "description": "Friendly framework. Duuuudeeee!",
   "license": "MIT",
   "keywords": ["dude","boilerplate","php"],
-  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Anton Repin",
