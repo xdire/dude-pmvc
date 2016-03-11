@@ -1,0 +1,22 @@
+{
+  "name": "xdire/dude-boilerplate",
+  "description": "Friendly framework. Duuuudeeee!",
+  "license": "MIT",
+  "keywords": ["dude","boilerplate","php"],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Anton Repin",
+      "email": "ar@xdire.io"
+    }
+  ],
+  "require": {
+    "xdire/dude": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "App",
+      "Drivers\\":"Drivers"
+    }
+  }
+}
