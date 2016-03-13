@@ -6,11 +6,15 @@
 /* ---------------------------------------------  \
 |                                                 \
 |       SWITCH ENVIRONMENT CONSTANT               \
-|                                                 \
+|       APPENVIRONMENT                            \
+|       please note that it can be defined        \
+|       through ENV variables                     \
 |       @values [dev], [prod]                     \
 |                                                 \
 ------------------------------------------------ */
-define('APPENVIRONMENT','dev');
+if(!getenv('APPENVIRONMENT'))
+    // Define environment variable below:
+    define('APPENVIRONMENT','dev');
 // ---------------------------------------------  \
 //      DEFINE CURRENT SERVER TIME ZONE           \
 // ---------------------------------------------  \
@@ -41,14 +45,11 @@ App::feedAppProcessFile(APPPATH."/process.php");
 // Switch environment properties and config zones
 $config = null;
 if (APPENVIRONMENT=='prod') { error_reporting(0);
-    require(APPPATH.'/config.prod.php');
-    $config = applicationConfig();
+    $config = require(APPPATH.'/config.prod.php');
 } elseif(APPENVIRONMENT=='dev') { error_reporting(-1);
-    require(APPPATH . '/config.dev.php');
-    $config = applicationConfig();
+    $config = require(APPPATH . '/config.dev.php');
 } elseif(APPENVIRONMENT=='test') { error_reporting(-1);
-    require(APPPATH.'/config.test.php');
-    $config = applicationConfig();
+    $config = require(APPPATH.'/config.test.php');
 } else {
     throw new \Exception('Environment parameter is wrong');
 }

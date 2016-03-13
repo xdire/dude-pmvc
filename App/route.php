@@ -11,10 +11,10 @@ App::Route(ROUTE_ALL,'/',function ($req,$res) {
     // Use Controller
     App::useController(new \App\Controller\ExampleController());
 
-    // Flush
+    // Flush all echoed data
     $res->flush();
 
-    // Send response
+    // Send more response from Route
     $res->send(200,"<br>Hello World!");
 
 },$middleware);

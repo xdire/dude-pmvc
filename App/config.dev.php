@@ -1,4 +1,4 @@
-<?php function applicationConfig(){return[
+<?php return [
     /* -----------------------------------------------------------------
     |
     |                       DEV ENVIRONMENT
@@ -18,7 +18,7 @@
         'port'=>'',
         'user' => 'root',
         'password' => '',
-        'instance' => 'Ordering'
+        'instance' => ''
     ),
 
     # [Mysql Custom Connection] for [ $db->useConnection('mysql_userconnection') ]
@@ -47,4 +47,4 @@
 
 
 
-];}
+];

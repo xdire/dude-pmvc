@@ -1,4 +1,4 @@
-<?php function applicationConfig(){return[
+<?php return[
     /* -----------------------------------------------------------------
     |
     |                       PRODUCTION ENVIRONMENT
@@ -47,4 +47,4 @@
 
 
 
-];}
+];
