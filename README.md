@@ -1,18 +1,44 @@
 # dude!
 PHP micro-framework (5.5+ / 7+)
 
-## Installation
-1. Create a folder for your application (ex. `/AppFolder`)
-2. Put (or clone) files in the folder
-3. Pur composer.phar into the same folder
-4. Open terminal in the same folder and run `php composer.phar install`
-3. Create new Virtual Host in your Web-Server (Apache, Nginx)
-4. Point Virtual Host root to `/AppFolder/public`
-5. Define a MOD_REWRITE rules for Apache or LOCATION for nginx to point at `/AppFolder/public/index.php`
+# Installation: through Composer
 
-#### Apache
+1) Install Composer to desired folder from https://getcomposer.org/download/
+
+2) execute next command (assuming that you installed Composer into folder as phar file)
+```text
+php composer.phar create-project xdire/dude-pmvc myapp
 ```
-<Directory "/AppFolder">
+myapp folder will be created in your desired folder
+```text
+mv composer.phar myapp
+cd myapp
+```
+execute composer update
+```text
+php composer.phar update
+```
+done
+
+# Installation: Linking to Web Server
+
+#### Folder structure of Application will look like below
+```text
+myapp
+--|
+  |- App
+  |- Drivers
+  |- public
+  |- vendor
+```
+
+#### Create new Virtual Host in your Web-Server
+
+Point Virtual Host root to `/somepath/myapp/public`
+
+##### Apache Virtual Host Directive
+```text
+<Directory "/somepath/myapp/public">
     AllowOverride None
     Require all granted
     <IfModule mod_rewrite.c>
@@ -24,8 +50,42 @@ PHP micro-framework (5.5+ / 7+)
       RewriteRule . /index.php
     </IfModule>
 </Directory>
+<VirtualHost *:80>
+   ServerName someserver.domain
+   DocumentRoot "/somepath/myapp/public"
+</VirtualHost>
 ```
-## After installation
+
+##### Nginx - Server Directive
+```text
+server {
+    listen	 80;
+    server_name  localhost;
+
+	location / {
+                if (!-e $request_filename) {
+                    rewrite (.*)$ /index.php last;
+                }
+        }
+
+	root   /somepath/myapp/public;
+    index  index.php index.html index.htm;
+
+    location ~ \.php$ {
+      # root           html;
+      # fastcgi_pass   127.0.0.1:9000;
+        fastcgi_param   APPENVIRONMENT  prod;
+        fastcgi_pass    unix:/var/run/php-fpm/php-fpm.sock;
+        fastcgi_index   index.php;
+        fastcgi_param   SCRIPT_FILENAME /somepath/myapp/public$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+}
+
+```
+
+# After installation
 #### Simple way
 Define some route in `/AppFolder/App/route.php`
 ```php
