@@ -12,8 +12,8 @@
 |       @values [dev], [prod]                     \
 |                                                 \
 ------------------------------------------------ */
-if(!getenv('APPENVIRONMENT'))
-    // Define environment variable below:
+if(isset($_SERVER['APPENVIRONMENT'])) define('APPENVIRONMENT',$_SERVER['APPENVIRONMENT']); else
+// Define environment variable below:
     define('APPENVIRONMENT','dev');
 // ---------------------------------------------  \
 //      DEFINE CURRENT SERVER TIME ZONE           \

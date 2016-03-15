@@ -15,6 +15,7 @@
     'mysql_connection' => array(
         'type'=>'mysql',
         'host'=>'localhost',
+        'sock'=>'',
         'port'=>'',
         'user' => 'root',
         'password' => '',
@@ -25,6 +26,7 @@
     'mysql_customconn' => array(
         'type'=>'mysql',
         'host'=>'localhost',
+        'sock'=>'',
         'port'=>'',
         'user' => '',
         'password' => '',
@@ -44,7 +46,6 @@
      *  Application Path parameters
      *
      * -----------------------------------------------------------------*/
-
 
 
 ];

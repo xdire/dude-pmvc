@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=5.5.0",
-    "xdire/dude": ">=0.2-stable"
+    "xdire/dude": ">=0.4-stable"
   },
   "autoload": {
     "psr-4": {

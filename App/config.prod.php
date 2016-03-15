@@ -14,7 +14,8 @@
     # [Mysql Default Connection]
     'mysql_connection' => array(
         'type'=>'mysql',
-        'host'=>'localhost',
+        'host'=>'',
+        'sock'=>'',
         'port'=>'',
         'user' => '',
         'password' => '',
@@ -24,7 +25,8 @@
     # [Mysql Custom Connection] for [ $db->useConnection('mysql_userconnection') ]
     'mysql_customconn' => array(
         'type'=>'mysql',
-        'host'=>'localhost',
+        'host'=>'',
+        'sock'=>'',
         'port'=>'',
         'user' => '',
         'password' => '',
