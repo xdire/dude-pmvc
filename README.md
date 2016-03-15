@@ -72,8 +72,6 @@ server {
     index  index.php index.html index.htm;
 
     location ~ \.php$ {
-      # root           html;
-      # fastcgi_pass   127.0.0.1:9000;
         fastcgi_param   APPENVIRONMENT  prod;
         fastcgi_pass    unix:/var/run/php-fpm/php-fpm.sock;
         fastcgi_index   index.php;
