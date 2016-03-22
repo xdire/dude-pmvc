@@ -55,4 +55,4 @@ if (APPENVIRONMENT=='prod') { error_reporting(0);
 }
 require(APPPATH.'/const.php');
 // STARTING CORE
-App::init($config);
+App::init($config,APPENVIRONMENT);
