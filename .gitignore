@@ -1,5 +1,7 @@
 .idea
 composer.phar
+composer.lock
 vendor
 Tests
 Data
+*.lock

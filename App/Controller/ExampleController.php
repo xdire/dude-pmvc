@@ -9,7 +9,7 @@ class ExampleController implements RoutingController,Controller
 {
     public function acceptRoute(Request $request, Response $response)
     {
-        $response->send(200,"<h1>Hello Dude!</h1><br>Route was accepted");
+        $response->send(200,"<h2>Hello Dude!</h2><br>Route was accepted");
     }
 
     public function start($data = null)
