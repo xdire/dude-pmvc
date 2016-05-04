@@ -87,7 +87,7 @@ server {
 #### Simple way
 Define some route in `/AppFolder/App/route.php`
 ```php
-App::Route(ROUTE_ALL,'/',function ($req,$resp) {
+App::route(ROUTE_ALL,'/',function ($req,$resp) {
     echo "Hello world";
 });
 ```
@@ -97,19 +97,53 @@ And after go to your server `http://your_server/`
 1. Define some controller in the `/App/Controller` folder
 ```php
 namespace App\Controller;
-use Core\Controller;
-use Core\Server\Request;
-use Core\Server\Response;
-class ExampleController extends Controller
+use Xdire\Dude\Core\Face\RoutingController;
+use Xdire\Dude\Server\Request;
+use Xdire\Dude\Server\Response;
+
+class ExampleController implements RoutingController
 {
-  public function testRoute(Request $request, Response $response){
-    $response->send(200,"Hello world.");
+  public function acceptRoute(Request $request, Response $response)
+  {
+  	$response->send(200,"<h2>Hey Dude!</h2>Route was accepted");
   }
 }
+
 ```
+
 2. Define controller route in `/AppFolder/App/route.php`
+
+Route example for every type of request
 ```php
-App::Route(ROUTE_ALL,'/',function ($req,$resp) {
+App::route(ROUTE_ALL,'/',function ($req,$resp) {
     App::routeController('ExampleController@testRoute',$req,$resp);
 });
 ```
+
+Route example for GET only Request
+```php
+App::route(ROUTE_GET,'/',function ($req,$resp) {
+    App::routeController('ExampleController@testRoute',$req,$resp);
+});
+```
+
+Route example for POST only Request
+```php
+App::route(ROUTE_POST,'/',function ($req,$resp) {
+    App::routeController('ExampleController@testRoute',$req,$resp);
+});
+```
+
+Types of request which is supported
+```text
+ROUTE_ALL
+ROUTE_GET
+ROUTE_POST
+ROUTE_UPD
+ROUTE_DEL
+ROUTE_PUT
+ROUTE_OPT
+```
+
+3. Middleware support
+4. CORS Middleware support
