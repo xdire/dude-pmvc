@@ -94,7 +94,7 @@ App::route(ROUTE_ALL,'/',function ($req,$resp) {
 And after go to your server `http://your_server/`
 
 #### Complex way
-1. Define some controller in the `/App/Controller` folder
+1 Define some controller in the `/App/Controller` folder
 ```php
 namespace App\Controller;
 use Xdire\Dude\Core\Face\RoutingController;
@@ -111,7 +111,7 @@ class ExampleController implements RoutingController
 
 ```
 
-2. Define controller route in `/AppFolder/App/route.php`
+2 Define controller route in `/AppFolder/App/route.php`
 
 Route example for every type of request
 ```php
@@ -145,5 +145,5 @@ ROUTE_PUT
 ROUTE_OPT
 ```
 
-3. Middleware support
-4. CORS Middleware support
+3 Middleware support
+4 CORS Middleware support
