@@ -18,7 +18,6 @@ App::route(ROUTE_ALL,'/',function (Request $req, Response $res) {
 }, $middleware);
 
 
-
 // ROUTE EXAMPLE 2 - With Calling Specific Controller
 App::route(ROUTE_ALL,'/test/*variable1/*variable2/*variable3',function(Request $req, Response $res) {
 
@@ -46,5 +45,6 @@ App::route(ROUTE_ALL,'/test',function(Request $req, Response $res) {
     $res->send(200,"<h1>Hello World!</h1>");
 
 }, $middleware);
+
 
 
